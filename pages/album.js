@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import useStore from "../lib/Store";
 import HeadInfo from "../components/HeadInfo";
 import AlbumBox from "../components/AlbumBox";
 
 export default function Album({ recivedList }) {
-  const [text, setText] = useState("");
   const { list, updateList } = useStore();
+  const [text, setText] = useState("");
 
   useEffect(() => {
     updateList(recivedList);
   }, [recivedList]);
 
   const handleCreate = (e) => {
-    setText(e.target.value)
+    setText(e.target.value);
   };
 
-  const handleClick = (e) => {
+  const handleCreateButton = () => {
     list.unshift({
       userId: list.length + 1,
       id: list.length + 1,
@@ -29,12 +29,13 @@ export default function Album({ recivedList }) {
     <div>
       <HeadInfo title="Get Album List" keyword="Album List" contents="Album List" />
       <h1>Album</h1>
-      <input type="text" name="text" value={text} onChange={handleCreate} placeholder="Write your comment" />
-      <button onClick={handleClick}>Create</button>
+
+      <input type="text" value={text} onChange={handleCreate} placeholder="Write your comments" />
+      <button onClick={handleCreateButton}>Create</button>
 
       {list.map((item) => (
         <div key={item.id}>
-          <AlbumBox userId={item.userId} id={item.id} title={item.title} />
+          <AlbumBox id={item.id} title={item.title} />
         </div>
       ))}
     </div>
@@ -42,7 +43,7 @@ export default function Album({ recivedList }) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch('https://jsonplaceholder.typicode.com/albums');
+  const res = await fetch("https://jsonplaceholder.typicode.com/albums");
   const recivedList = await res.json();
 
   if (!res) {
