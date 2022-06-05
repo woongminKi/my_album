@@ -16,7 +16,7 @@
     "zustand": "^4.0.0-rc.1"
   },
   "devDependencies": {
-    "cypress": "^10.0.2",
+    "cypress": "^9.6.1",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6"
   }
