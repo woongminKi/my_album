@@ -11,6 +11,12 @@
   color: white;
 }
 
+.button:hover {
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
 .inputBox {
   border-radius: 1rem;
   width: 200px;
