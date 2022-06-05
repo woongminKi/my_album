@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import useStore from "../lib/Store";
+import albumBox from "../styles/AlbumBox.module.css";
 
 export default function AlbumBox({ id, title }) {
   const { list, updateList } = useStore();
@@ -36,20 +37,20 @@ export default function AlbumBox({ id, title }) {
 
   return (
     <>
-      <div>
-        <Image src={"https://place-hold.it/500.jpg"} alt="Image" width="50" height="50" />
+      <div className={albumBox.images}>
+        <Image src={"https://place-hold.it/500.jpg"} alt="Image" width={100} height={100} />
       </div>
       <div>{title}</div>
 
       {isClickedUpdate ?
         <>
-          <input type="text" value={text} onChange={handleUpdate} placeholder="Write new comments" />
-          <button id={id} onClick={handleSubmitButton}>Submit</button>
+          <input className={albumBox.inputBox} type="text" value={text} onChange={handleUpdate} placeholder="Write new comments" />
+          <button className={albumBox.button} id={id} onClick={handleSubmitButton}>Submit</button>
         </>
       :
-        <button onClick={handleUpdateButton}>Update</button>
+        <button className={albumBox.button} onClick={handleUpdateButton}>Update</button>
       }
-      <button id={id} onClick={handleDeleteButton}>Delete</button>
+      <button className={albumBox.button} id={id} onClick={handleDeleteButton}>Delete</button>
     </>
   );
 }
