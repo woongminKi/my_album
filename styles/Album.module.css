@@ -1,5 +1,10 @@
+.h1 {
+  margin: 5px 0 18px 48px;
+}
+
 .title {
-  margin: 5px 0 5px 30px;
+  margin: 5px 0 5px 40px;
+  text-align: left;
 }
 
 .button {
@@ -11,9 +16,36 @@
   color: white;
 }
 
+.button:hover {
+  cursor: pointer;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.pagiNationButton {
+  border: none;
+  width: 80px;
+  height: 30px;
+  margin: 10px 0 10px 30px;
+  background-color: lightcoral;
+  color: white;
+}
+
+.pagiNationButton:hover {
+  cursor: pointer;
+  transform: translateY(-6px);
+  transition: 0.3s;
+}
+
+.pagiNationButton:disabled {
+  background-color: grey;
+  cursor: revert;
+  transform: revert;
+}
+
 .inputBox {
   border-radius: 1rem;
   width: 200px;
   height: 30px;
-  margin-left: 30px;
+  margin-left: 40px;
 }
